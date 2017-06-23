@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/zan/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.0.0-RC1/c425e31eda1069f978a0e823ad50e567ab422656/gifdecoder-4.0.0-RC1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c425e31eda1069f978a0e823ad50e567ab422656">
+        <dex dex="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/transforms/dex/debug/folders/1000/10/gifdecoder-4.0.0-RC1_b52ab89c1b21ae235cfd7f021b4b3307b57396d1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zan/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/4.0.0-RC1/7baec7d5132e7343100a99630a56a6584a33addc/glide-4.0.0-RC1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7baec7d5132e7343100a99630a56a6584a33addc">
+        <dex dex="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-4.0.0-RC1_bf76f5e6d00cdfb12e76dc1d2d5e6cb15191b00d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zan/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.0.0-RC1/84c524dcd1a3088edd5560a8ac176eae1317f770/annotations-4.0.0-RC1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="84c524dcd1a3088edd5560a8ac176eae1317f770">
+        <dex dex="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-4.0.0-RC1_fe6486b4354297aea05c57061f2b6e4378fd0ce3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zan/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.0.0-RC1/1b4bba8f8d3df8db064c875c043c01e9ca3cdee9/disklrucache-4.0.0-RC1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1b4bba8f8d3df8db064c875c043c01e9ca3cdee9">
+        <dex dex="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/transforms/dex/debug/folders/1000/10/disklrucache-4.0.0-RC1_b7659f9f12447dffd4d489236d5b029f0621ae42/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9c85bf838015d120b37c68731c574ba5f6d19f6">
+        <dex dex="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2feef63e6c544dc93dd3a94dbcbcfd16f6c888eb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/zan/dev/pusher-random/crypto_notifications/LiveStockExchangeNotifications/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_598a16b981de89065cb5dc8c209f3a0b061d07d2/classes.dex" />
+    </item>
+
+</items>
