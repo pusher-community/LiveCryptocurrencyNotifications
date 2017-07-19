@@ -20,36 +20,8 @@ const updatePrice = () => {
     
 
     let currentPrice = btcprice.last as number;
-    let highPrice = btcprice.high as number;
-    let lowPrice = btcprice.low as number;
-    let avgPrice = btcprice.vwap as number;
     let openPrice = btcprice.open as number;
-
-    //calculate trend
-    let trend = 0;
-    let difference = currentPrice/openPrice;
-
-    if( difference  <= 0.8){
-        trend = -3;
-    }
-    else if( difference <= 0.95){
-        trend = -2;
-    }
-    else if( difference < 1.0){
-        trend = -1;
-    }
-    else if(difference == 1){
-        trend = 0;
-    }
-    else if( difference <= 1.05 ){
-        trend = 1;
-    }
-    else if( difference <= 1.20 ){
-        trend = 2;
-    }
-    else {
-        trend = 3
-    }
+    let currencyPair = "BTCUSD";
 
     counter += 1;
 
@@ -57,25 +29,21 @@ const updatePrice = () => {
         fcm: {
             data: {
                 graph_url: graph_url_minute,
-                price: currentPrice,
-                open: openPrice,
-                trend: trend,
-                counter: counter,
-                lowPrice: lowPrice,
-                highPrice: highPrice
+                currentPrice: currentPrice,
+                openPrice: openPrice,
+                currencyPair: currencyPair,
+                counter: counter
             }
         }
     });
 
     console.log(
         {
-            graph_url: graph_url,
-                price: currentPrice,
-                open: openPrice,
-                trend: trend,
-                counter: counter,
-                lowPrice: lowPrice,
-                highPrice: highPrice
+            graph_url: graph_url_minute,
+            currentPrice: currentPrice,
+            openPrice: openPrice,
+            currencyPair: currencyPair,
+            counter: counter
         });
 }
 

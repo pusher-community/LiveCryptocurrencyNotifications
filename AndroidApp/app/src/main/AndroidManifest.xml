@@ -21,7 +21,7 @@
         </activity>
 
         <service
-            android:name="com.pusher.livecrypto.CryptoNotificationsService"
+            android:name=".CryptoNotificationsService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

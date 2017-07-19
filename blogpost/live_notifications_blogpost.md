@@ -11,16 +11,13 @@ I was fascinated at how the Guardian Media Lab covered the US presidential elect
 
 They used it to indicate which candidate was winning, and by how many delegates. You can read more about it and how they created it [on their Medium blog](https://medium.com/the-guardian-mobile-innovation-lab/building-the-guardians-live-elections-notifications-87bafbcf510).
 
-<!-- ![image](guardian_notification.png) -->
-
-
 I will show you how to add something similar to your apps.
 In this example, we'll be building a notification that shows the movement of the price of Bitcoin, Ether, or your favourite cryptocurrency.
 
 The end product will look similar to this:
 
-<!-- TODO: screenshot of the notification -->
-
+![Screenshot of the notification](crypto_notification_2.png)
+<!-- TODO: resize this! -->
 
 The technologies we will be using are:
 
@@ -34,7 +31,6 @@ The technologies we will be using are:
 
 This tutorial assumes you're familiar with the basics of development, including Android and Node.js.
 You need to already have a Pusher account set up. If not, I'll wait. Chop, chop.
-
 
 ## Setup
 
