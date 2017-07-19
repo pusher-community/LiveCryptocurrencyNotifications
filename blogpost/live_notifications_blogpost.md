@@ -11,13 +11,11 @@ I was fascinated at how the Guardian Media Lab covered the US presidential elect
 
 They used it to indicate which candidate was winning, and by how many delegates. You can read more about it and how they created it [on their Medium blog](https://medium.com/the-guardian-mobile-innovation-lab/building-the-guardians-live-elections-notifications-87bafbcf510).
 
-I will show you how to add something similar to your apps.
-In this example, we'll be building a notification that shows the movement of the price of Bitcoin, Ether, or your favourite cryptocurrency.
+Today I will show you how to add something similar to your apps. In this concrete example, we'll be building a notification that shows the movement of the price of BitCoin, Ether, or your favourite cryptocurrency.
 
 The end product will look similar to this:
 
 ![Screenshot of the notification](crypto_notification_2.png)
-<!-- TODO: resize this! -->
 
 The technologies we will be using are:
 
@@ -29,37 +27,36 @@ The technologies we will be using are:
    - Bitstamp for raw data,
    - and BitcoinCharts for the charts in image format
 
-This tutorial assumes you're familiar with the basics of development, including Android and Node.js.
-You need to already have a Pusher account set up. If not, I'll wait. Chop, chop.
+This tutorial assumes you're familiar with the basics of Android and JavaScript/Node.js, and that you have accounts on Pusher and Firebase. If not, I'll wait. Chop, chop.
 
 ## Setup
 
-### Setting up FCM
+To set up Pusher and FCM in your project initially you can follow the step-by-step tutorial on [Pusher's documentation](https://pusher.com/docs/push_notifications/android/client_fcm).
 
-We need to have FCM configured and set up in our application in order to be able to receive anything.
-If you don't have it in your app already, go to [Firebase Console](https://console.firebase.google.com) and create a project, and follow the instruction to set up your application.
-It's important to ensure you package name or application ID matches the one in the console. Then generate the file `google-services.json`.
+Once you have that up and running, there's a few things we'll do to make it work:
+- Add Glide library for loading images 🛫
+- Implement a custom `FirebaseMessagingService` 🚀
+- Create the View for the notification 👀
+- Tie everything together 🎁
+- Hit the API and send a Push ⚡
 
 
-### Android client
 
-Link to follow: https://firebase.google.com/docs/android/setup
 
-Copy the `google-services.json` from the Firebase console into your Android project directory. Then set up the dependencies for Firebase. It involves adding the line `apply plugin: 'com.google.gms.google-services'` to the end of your `app/build.gradle` file.
+Firstly, create an Android Studio project, if you don't have one already. A blank one will suffice. Keep in mind the package name you've chosen, as Firebase will require it.
+Next up, we need to have FCM configured and set up in our application in order to be able to receive anything.
+If you don't have it in your app already, go to [Firebase Console](https://console.firebase.google.com) and create a project, and follow the instruction to set up your application. It will ask you for the package name or application ID of the Android app you just created. You can find the detailed step-by-step instructions here: https://firebase.google.com/docs/android/setup.
 
-Next, add two more SDKs: Pusher for orchestrating with FCM, and Glide for loading images. The lines to add to your dependencies are:
+Next, we'll add two more SDKs: Pusher for orchestrating with FCM, and Glide for loading images. The lines to add to your dependencies are:
 
 ```groovy
-dependencies {
+  compile 'com.pusher:pusher-websocket-android:0.6.0'
   compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
-  compile 'com.android.support:support-v4:25.3.1'
   annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
-  ...
-}
 ```
 
 
-### Pusher dashboard
+
 
 
 
@@ -87,8 +84,9 @@ dependencies {
 
 FCM allows us to specify 2 types of payloads - `notification` and `data`. They differ in how a push notification is handled when the application is not in the foreground.
 Using the `notification` payload requires less work, as Android will automatically show the notification if a push is received when the application is not currently in the foreground.
-The `data` payload gives us more freedom in showing the notification, and allows us to style it to our liking. That is the one we will use.
-It can take any combination of primitive key/values you with - you'll have to know the keys in advance though, to get them from the Notification bundle. Our sample bundle could look like this:
+The `data` payload gives us more freedom in showing the notification, and allows us to style it to our liking. That is the one we will use. You can read more about their differences on FCM documentation: https://firebase.google.com/docs/cloud-messaging/concept-options
+
+The `data` payload takes any combination of primitive key/values, that you get to get them from the Notification `Bundle` using `remoteMessage.getData()`. Our sample bundle could look like this:
 
 ```javascript
 payload = {
