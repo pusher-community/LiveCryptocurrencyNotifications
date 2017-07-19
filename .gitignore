@@ -7,3 +7,5 @@
 **/captures
 **.externalNativeBuild
 **/google-services.json
+**/.idea/
+**/build/

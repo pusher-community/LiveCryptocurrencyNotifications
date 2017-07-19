@@ -31,7 +31,7 @@ public class CryptoNotificationsService extends FirebaseMessagingService {
         stockViews.setTextViewText(R.id.price_text, String.format("BTC price - $%s %s", currentPrice, chartEmoji));
 
         stockViews.setTextColor(R.id.price_text, getTextColour(trend));
-        stockViews.setTextViewText(R.id.detailed_price_text, String.format("High: $%s | Low: $%s | Open: $%s", highPrice, lowPrice, openPrice));
+        stockViews.setTextViewText(R.id.price_difference_text, String.format("High: $%s | Low: $%s | Open: $%s", highPrice, lowPrice, openPrice));
 
 
         int notificationId = 1;
@@ -59,7 +59,6 @@ public class CryptoNotificationsService extends FirebaseMessagingService {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-
                     Glide.get(getApplicationContext()).clearMemory();
                     Glide.with( getApplicationContext() )
                             .asBitmap()

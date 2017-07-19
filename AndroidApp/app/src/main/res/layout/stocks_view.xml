@@ -23,10 +23,11 @@
         />
 
     <TextView
-        android:id="@+id/detailed_price_text"
+        android:id="@+id/price_difference_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/price_text"
+        android:layout_below="@id/chart_img"
+        android:layout_toEndOf="@id/price_text"
 
         tools:text="2877.75"/>
 

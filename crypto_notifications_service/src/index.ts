@@ -2,7 +2,10 @@ const Pusher = require('pusher');
 const request = require('sync-request');
 
 var pusher = new Pusher({
-
+    appId: '354052',
+    key: 'a446158132cfaa3ed747',
+    secret: '6f6ddfd0127e04d23cbb',
+    encrypted: true
 });
 
 let graph_url = 'https://bitcoincharts.com/charts/chart.png?width=940&m=bitstampUSD&SubmitButton=Draw&r=2&i=15-min&c=0&s=&e=&Prev=&Next=&t=M&b=&a1=&m1=10&a2=&m2=25&x=0&i1=&i2=&i3=&i4=&v=1&cv=1&ps=0&l=0&p=0&'
@@ -53,7 +56,7 @@ const updatePrice = () => {
     pusher.notify(['bitcoin'], {
         fcm: {
             data: {
-                graph_url: graph_url,
+                graph_url: graph_url_minute,
                 price: currentPrice,
                 open: openPrice,
                 trend: trend,
@@ -77,7 +80,7 @@ const updatePrice = () => {
 }
 
 
-var task = cron.schedule('*/15 * * * *', () => {
+var task = cron.schedule('* * * * *', () => {
     updatePrice();
 });
 
