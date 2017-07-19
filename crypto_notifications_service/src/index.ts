@@ -19,8 +19,8 @@ const updatePrice = () => {
      let btcprice = JSON.parse(request('GET', 'https://www.bitstamp.net/api/v2/ticker_hour/btcusd/').getBody('utf8'));
     
 
-    let currentPrice = btcprice.last as number;
-    let openPrice = btcprice.open as number;
+    let currentPrice = btcprice.last;
+    let openPrice = btcprice.open;
     let currencyPair = "BTCUSD";
 
     counter += 1;
@@ -28,7 +28,7 @@ const updatePrice = () => {
     pusher.notify(['bitcoin'], {
         fcm: {
             data: {
-                graph_url: graph_url_minute,
+                graphUrl: graph_url_minute,
                 currentPrice: currentPrice,
                 openPrice: openPrice,
                 currencyPair: currencyPair,
@@ -39,7 +39,7 @@ const updatePrice = () => {
 
     console.log(
         {
-            graph_url: graph_url_minute,
+            graphUrl: graph_url_minute,
             currentPrice: currentPrice,
             openPrice: openPrice,
             currencyPair: currencyPair,
@@ -48,7 +48,7 @@ const updatePrice = () => {
 }
 
 
-var task = cron.schedule('* * * * *', () => {
+var task = cron.schedule('*/15 * * * *', () => {
     updatePrice();
 });
 

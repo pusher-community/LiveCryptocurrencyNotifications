@@ -26,30 +26,30 @@ public class CryptoNotificationsService extends FirebaseMessagingService {
         String openPrice = data.get("openPrice");
         String currencyPair = data.get("currencyPair");
 
-        RemoteViews stockViews = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification_view);
+        RemoteViews notificationViews = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification_view);
 
         double difference = Double.parseDouble(currentPrice) - Double.parseDouble(openPrice);
-        stockViews.setTextViewText(R.id.price_text, String.format("%s: %s", currencyPair, currentPrice));
+        notificationViews.setTextViewText(R.id.price_text, String.format("%s: %s", currencyPair, currentPrice));
 
         String arrow = "↑";
         if(difference > 0) {
-           stockViews.setTextColor(R.id.price_difference_text, getColor(R.color.green));
+           notificationViews.setTextColor(R.id.price_difference_text, getColor(R.color.green));
         }
         else if(difference == 0){
-            stockViews.setTextColor(R.id.price_difference_text, getColor(R.color.black));
+            notificationViews.setTextColor(R.id.price_difference_text, getColor(R.color.black));
             arrow = "";
         }
         else{
-            stockViews.setTextColor(R.id.price_difference_text, getColor(R.color.red));
+            notificationViews.setTextColor(R.id.price_difference_text, getColor(R.color.red));
             arrow = "↓";
         }
 
-        stockViews.setTextViewText(R.id.price_difference_text, String.format("%.2f %s", difference, arrow));
+        notificationViews.setTextViewText(R.id.price_difference_text, String.format("%.2f %s", difference, arrow));
 
         int notificationId = 1;
         Notification notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_show_chart_black_24px)
-                .setCustomBigContentView(stockViews)
+                .setCustomBigContentView(notificationViews)
                 .build();
 
 
@@ -60,7 +60,7 @@ public class CryptoNotificationsService extends FirebaseMessagingService {
         final NotificationTarget notificationTarget = new NotificationTarget(
                 this,
                 R.id.chart_img,
-                stockViews,
+                notificationViews,
                 notification,
                 1);
 
@@ -70,7 +70,6 @@ public class CryptoNotificationsService extends FirebaseMessagingService {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    Glide.get(getApplicationContext()).clearMemory();
                     Glide.with( getApplicationContext() )
                             .asBitmap()
                             .load(uri)
