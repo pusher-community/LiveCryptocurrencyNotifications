@@ -3,20 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "rebuild": "rm -rf build/ && yarn build && node build/index.js"
-  },
   "devDependencies": {
     "@types/node": "^8.0.1",
     "typescript": "^2.3.4"
   },
   "dependencies": {
-    "@types/pusher-js": "^3.0.29",
     "node-cron": "^1.2.0",
-    "plotly": "^1.0.6",
     "pusher": "^1.5.1",
-    "request": "^2.81.0",
     "sync-request": "^4.1.0"
   }
 }
