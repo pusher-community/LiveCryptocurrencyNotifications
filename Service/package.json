@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^8.0.1",
-    "typescript": "^2.3.4"
-  },
   "dependencies": {
     "node-cron": "^1.2.0",
     "pusher": "^1.5.1",
